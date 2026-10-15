@@ -1,0 +1,28 @@
+{
+  "name": "muse-workspace",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "packageManager": "bun@1.4.2",
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "@biomejs/biome": "^2.2.5",
+    "@types/bun": "1.4.2",
+    "@types/node": "^26.6.2",
+    "typescript": "^5.8.2",
+    "vitest": "^3.2.4"
+  },
+  "scripts": {
+    "verify": "biome check . && bun run typecheck && bun run test:unit && bun run build",
+    "format": "biome check --write .",
+    "gen:catalog": "bun packages/muse-core/scripts/generate-rpc-catalog.ts",
+    "muse": "bun run --cwd packages/muse-core build >/dev/null && bun packages/muse-cli/src/cli.ts",
+    "typecheck": "tsc -b packages/muse-core packages/muse-cli packages/muse-mcp",
+    "test:unit": "vitest run",
+    "build": "bun run --cwd packages/muse-core build && bun run --cwd packages/muse-cli build && bun run --cwd packages/muse-mcp build",
+    "pack:check": "for p in muse-core muse-cli muse-mcp; do (cd packages/$p && npm pack --dry-run); done",
+    "publish:all": "bun run verify && for p in muse-core muse-cli muse-mcp; do (cd packages/$p && npm publish --access public --auth-type=web); done"
+  }
+}

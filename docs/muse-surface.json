@@ -1,0 +1,1069 @@
+{
+  "generated": "2026-10-14",
+  "rpc": {
+    "total": 333,
+    "groups": {
+      "ac_oauth": {
+        "count": 1,
+        "safety": {
+          "write": 1
+        },
+        "methods": [
+          "ac_oauth.callback"
+        ]
+      },
+      "activity": {
+        "count": 3,
+        "safety": {
+          "read": 3
+        },
+        "methods": [
+          "activity.get",
+          "activity.list",
+          "activity.subscribe"
+        ]
+      },
+      "ads": {
+        "count": 1,
+        "safety": {
+          "read": 1
+        },
+        "methods": [
+          "ads.details"
+        ]
+      },
+      "api_key_auth": {
+        "count": 1,
+        "safety": {
+          "sensitive": 1
+        },
+        "methods": [
+          "api_key_auth.callback"
+        ]
+      },
+      "api": {
+        "count": 8,
+        "safety": {
+          "read": 3,
+          "write": 4,
+          "destructive": 1
+        },
+        "methods": [
+          "api.idea-cards.debug",
+          "api.idea-cards.detail",
+          "api.idea-cards.execute",
+          "api.idea-cards.list",
+          "api.idea-cards.share",
+          "api.ideas.engagement",
+          "api.ideas.feedback",
+          "api.ideas.reset"
+        ]
+      },
+      "artifacts": {
+        "count": 7,
+        "safety": {
+          "read": 3,
+          "write": 3,
+          "destructive": 1
+        },
+        "methods": [
+          "artifacts.fetch_url",
+          "artifacts.list",
+          "artifacts.pin",
+          "artifacts.remove",
+          "artifacts.share",
+          "artifacts.slides.rebuild",
+          "artifacts.subscribe"
+        ]
+      },
+      "bootstrap": {
+        "count": 1,
+        "safety": {
+          "destructive": 1
+        },
+        "methods": [
+          "bootstrap.reset"
+        ]
+      },
+      "browser_activity": {
+        "count": 1,
+        "safety": {
+          "read": 1
+        },
+        "methods": [
+          "browser_activity.snapshot"
+        ]
+      },
+      "browser_stream": {
+        "count": 1,
+        "safety": {
+          "write": 1
+        },
+        "methods": [
+          "browser_stream.attach"
+        ]
+      },
+      "browser_task": {
+        "count": 14,
+        "safety": {
+          "write": 12,
+          "read": 2
+        },
+        "methods": [
+          "browser_task.clipboard.copy",
+          "browser_task.clipboard.paste",
+          "browser_task.clipboard.readiness",
+          "browser_task.close",
+          "browser_task.end_and_release",
+          "browser_task.get",
+          "browser_task.heartbeat",
+          "browser_task.lease_info",
+          "browser_task.present",
+          "browser_task.refresh_environment",
+          "browser_task.release",
+          "browser_task.stop",
+          "browser_task.takeover",
+          "browser_task.viewer"
+        ]
+      },
+      "browser": {
+        "count": 7,
+        "safety": {
+          "read": 3,
+          "write": 4
+        },
+        "methods": [
+          "browser.debug_access.get",
+          "browser.lease",
+          "browser.lease_overrides.get",
+          "browser.lease_overrides.release",
+          "browser.lease_overrides.set",
+          "browser.local_testing.get",
+          "browser.local_testing.set"
+        ]
+      },
+      "bug_report_logs": {
+        "count": 2,
+        "safety": {
+          "sensitive": 2
+        },
+        "methods": [
+          "bug_report_logs.create",
+          "bug_report_logs.download"
+        ]
+      },
+      "channels": {
+        "count": 3,
+        "safety": {
+          "sensitive": 3
+        },
+        "methods": [
+          "channels.link",
+          "channels.status",
+          "channels.unlink"
+        ]
+      },
+      "chat": {
+        "count": 15,
+        "safety": {
+          "destructive": 2,
+          "read": 7,
+          "write": 6
+        },
+        "methods": [
+          "chat.cancel",
+          "chat.delete_turn",
+          "chat.history",
+          "chat.history_window",
+          "chat.mark_seen",
+          "chat.message_get",
+          "chat.poke",
+          "chat.search",
+          "chat.stream",
+          "chat.stream_events",
+          "chat.subscribe",
+          "chat.sxs.select",
+          "chat.themes",
+          "chat.themes.set",
+          "chat.unread_count"
+        ]
+      },
+      "check": {
+        "count": 1,
+        "safety": {
+          "read": 1
+        },
+        "methods": [
+          "check"
+        ]
+      },
+      "client": {
+        "count": 3,
+        "safety": {
+          "write": 3
+        },
+        "methods": [
+          "client.invoke.result",
+          "client.register_capabilities",
+          "client.runtime_state"
+        ]
+      },
+      "computer": {
+        "count": 3,
+        "safety": {
+          "read": 3
+        },
+        "methods": [
+          "computer.context",
+          "computer.preview",
+          "computer.subscribe"
+        ]
+      },
+      "config": {
+        "count": 2,
+        "safety": {
+          "read": 1,
+          "write": 1
+        },
+        "methods": [
+          "config.get",
+          "config.update"
+        ]
+      },
+      "connection": {
+        "count": 1,
+        "safety": {
+          "write": 1
+        },
+        "methods": [
+          "connection.ping"
+        ]
+      },
+      "connectors": {
+        "count": 11,
+        "safety": {
+          "sensitive": 11
+        },
+        "methods": [
+          "connectors.accounts",
+          "connectors.accounts_link",
+          "connectors.accounts_unlink",
+          "connectors.connect",
+          "connectors.connect_info",
+          "connectors.disconnect",
+          "connectors.get",
+          "connectors.homepage",
+          "connectors.list",
+          "connectors.permissions",
+          "connectors.scope_link"
+        ]
+      },
+      "consent_auth": {
+        "count": 1,
+        "safety": {
+          "write": 1
+        },
+        "methods": [
+          "consent_auth.callback"
+        ]
+      },
+      "credentials": {
+        "count": 10,
+        "safety": {
+          "sensitive": 10
+        },
+        "methods": [
+          "credentials.capture",
+          "credentials.capture.external_provider.fulfill",
+          "credentials.capture.external_provider.request",
+          "credentials.catalog",
+          "credentials.catalog.delete",
+          "credentials.catalog.details",
+          "credentials.catalog.update",
+          "credentials.delete",
+          "credentials.list",
+          "credentials.register"
+        ]
+      },
+      "custom_connectors": {
+        "count": 3,
+        "safety": {
+          "sensitive": 3
+        },
+        "methods": [
+          "custom_connectors.delete",
+          "custom_connectors.list",
+          "custom_connectors.register"
+        ]
+      },
+      "dyi": {
+        "count": 1,
+        "safety": {
+          "sensitive": 1
+        },
+        "methods": [
+          "dyi.export"
+        ]
+      },
+      "egress": {
+        "count": 20,
+        "safety": {
+          "sensitive": 20
+        },
+        "methods": [
+          "egress.approval",
+          "egress.approval.decide",
+          "egress.approval.edit_message",
+          "egress.approval.history",
+          "egress.approvals",
+          "egress.permissions",
+          "egress.permissions.active",
+          "egress.permissions.active.update",
+          "egress.permissions.connector",
+          "egress.permissions.connector.reset",
+          "egress.permissions.hitl",
+          "egress.permissions.hitl.snooze.delete",
+          "egress.permissions.mitm",
+          "egress.permissions.network_rules",
+          "egress.permissions.reset",
+          "egress.permissions.revoke",
+          "egress.permissions.scoped",
+          "egress.permissions.scoped.update",
+          "egress.permissions.sni_rejection",
+          "egress.permissions.tproxy"
+        ]
+      },
+      "email": {
+        "count": 8,
+        "safety": {
+          "sensitive": 8
+        },
+        "methods": [
+          "email.attachment.get",
+          "email.mailbox.create",
+          "email.mailbox.delete",
+          "email.mailbox.get",
+          "email.mailbox.setup",
+          "email.messages.get",
+          "email.threads.get",
+          "email.threads.list"
+        ]
+      },
+      "feed": {
+        "count": 16,
+        "safety": {
+          "read": 8,
+          "write": 6,
+          "destructive": 2
+        },
+        "methods": [
+          "feed.infinite",
+          "feed.list",
+          "feed.prompt.get",
+          "feed.prompt.update",
+          "feed.prompts.delete",
+          "feed.regenerate",
+          "feed.reorder",
+          "feed.search",
+          "feed.social_source_icon",
+          "feed.status",
+          "feed.unit",
+          "feed.unit.delete",
+          "feed.unit.media",
+          "feed.unit.reaction",
+          "feed.unit.tap",
+          "feed.units.seen"
+        ]
+      },
+      "foa_auth": {
+        "count": 1,
+        "safety": {
+          "sensitive": 1
+        },
+        "methods": [
+          "foa_auth.callback"
+        ]
+      },
+      "foa": {
+        "count": 1,
+        "safety": {
+          "sensitive": 1
+        },
+        "methods": [
+          "foa.accounts"
+        ]
+      },
+      "fs": {
+        "count": 14,
+        "safety": {
+          "destructive": 1,
+          "write": 11,
+          "read": 2
+        },
+        "methods": [
+          "fs.delete",
+          "fs.export",
+          "fs.library",
+          "fs.list",
+          "fs.mkdir",
+          "fs.raw",
+          "fs.read",
+          "fs.reads",
+          "fs.rename",
+          "fs.search",
+          "fs.stat",
+          "fs.stats",
+          "fs.subscribe",
+          "fs.write"
+        ]
+      },
+      "git": {
+        "count": 2,
+        "safety": {
+          "write": 2
+        },
+        "methods": [
+          "git.log",
+          "git.show_file"
+        ]
+      },
+      "github": {
+        "count": 1,
+        "safety": {
+          "write": 1
+        },
+        "methods": [
+          "github.installation.callback"
+        ]
+      },
+      "goal_prompt": {
+        "count": 1,
+        "safety": {
+          "write": 1
+        },
+        "methods": [
+          "goal_prompt"
+        ]
+      },
+      "goals": {
+        "count": 6,
+        "safety": {
+          "destructive": 1,
+          "read": 2,
+          "write": 3
+        },
+        "methods": [
+          "goals.delete",
+          "goals.get",
+          "goals.list",
+          "goals.reorder",
+          "goals.suggestions.decide",
+          "goals.update"
+        ]
+      },
+      "grants": {
+        "count": 1,
+        "safety": {
+          "sensitive": 1
+        },
+        "methods": [
+          "grants.list"
+        ]
+      },
+      "home_link_bug_reports": {
+        "count": 1,
+        "safety": {
+          "sensitive": 1
+        },
+        "methods": [
+          "home_link_bug_reports.collect"
+        ]
+      },
+      "idea-cards": {
+        "count": 1,
+        "safety": {
+          "read": 1
+        },
+        "methods": [
+          "idea-cards.media"
+        ]
+      },
+      "identity": {
+        "count": 2,
+        "safety": {
+          "read": 2
+        },
+        "methods": [
+          "identity",
+          "identity.subscribe"
+        ]
+      },
+      "iframe": {
+        "count": 1,
+        "safety": {
+          "write": 1
+        },
+        "methods": [
+          "iframe.call"
+        ]
+      },
+      "invite": {
+        "count": 2,
+        "safety": {
+          "read": 1,
+          "write": 1
+        },
+        "methods": [
+          "invite.badge.get",
+          "invite.badge.seen"
+        ]
+      },
+      "memory": {
+        "count": 4,
+        "safety": {
+          "write": 4
+        },
+        "methods": [
+          "memory.consolidate",
+          "memory.get",
+          "memory.reindex",
+          "memory.search"
+        ]
+      },
+      "messenger_companion": {
+        "count": 1,
+        "safety": {
+          "sensitive": 1
+        },
+        "methods": [
+          "messenger_companion.unlock"
+        ]
+      },
+      "messenger-read": {
+        "count": 1,
+        "safety": {
+          "write": 1
+        },
+        "methods": [
+          "messenger-read.unlock"
+        ]
+      },
+      "messenger": {
+        "count": 2,
+        "safety": {
+          "read": 2
+        },
+        "methods": [
+          "messenger.fb-check",
+          "messenger.pin_status"
+        ]
+      },
+      "model": {
+        "count": 2,
+        "safety": {
+          "read": 1,
+          "write": 1
+        },
+        "methods": [
+          "model.get",
+          "model.set"
+        ]
+      },
+      "navigation": {
+        "count": 3,
+        "safety": {
+          "write": 2,
+          "read": 1
+        },
+        "methods": [
+          "navigation.pinned.set",
+          "navigation.recents.touch",
+          "navigation.subscribe"
+        ]
+      },
+      "node": {
+        "count": 5,
+        "safety": {
+          "destructive": 2,
+          "write": 3
+        },
+        "methods": [
+          "node.disconnect",
+          "node.heartbeat",
+          "node.list",
+          "node.register",
+          "node.unpair"
+        ]
+      },
+      "nodes": {
+        "count": 3,
+        "safety": {
+          "write": 3
+        },
+        "methods": [
+          "nodes.invoke_ack",
+          "nodes.invoke_result",
+          "nodes.sync"
+        ]
+      },
+      "oauth": {
+        "count": 1,
+        "safety": {
+          "sensitive": 1
+        },
+        "methods": [
+          "oauth.callback"
+        ]
+      },
+      "onboarding": {
+        "count": 9,
+        "safety": {
+          "write": 3,
+          "read": 5,
+          "destructive": 1
+        },
+        "methods": [
+          "onboarding.complete",
+          "onboarding.identity",
+          "onboarding.identity.set",
+          "onboarding.pages.start",
+          "onboarding.questions",
+          "onboarding.reset",
+          "onboarding.state",
+          "onboarding.tasks",
+          "onboarding.variants"
+        ]
+      },
+      "peers": {
+        "count": 14,
+        "safety": {
+          "sensitive": 14
+        },
+        "methods": [
+          "peers.avatar",
+          "peers.disconnect",
+          "peers.discretion.write",
+          "peers.invites.accept",
+          "peers.invites.create",
+          "peers.invites.list",
+          "peers.invites.revoke",
+          "peers.list",
+          "peers.photo",
+          "peers.requests.list",
+          "peers.requests.sas",
+          "peers.requests.sas.confirm",
+          "peers.status",
+          "peers.update"
+        ]
+      },
+      "permissions": {
+        "count": 3,
+        "safety": {
+          "read": 1,
+          "sensitive": 2
+        },
+        "methods": [
+          "permissions.inventory",
+          "permissions.settings",
+          "permissions.settings.update"
+        ]
+      },
+      "pin": {
+        "count": 2,
+        "safety": {
+          "write": 2
+        },
+        "methods": [
+          "pin.reminder_confirm",
+          "pin.update"
+        ]
+      },
+      "podcasts": {
+        "count": 4,
+        "safety": {
+          "destructive": 1,
+          "read": 3
+        },
+        "methods": [
+          "podcasts.episode.delete",
+          "podcasts.episodes.list",
+          "podcasts.feed.get",
+          "podcasts.feeds.list"
+        ]
+      },
+      "product_improvements": {
+        "count": 2,
+        "safety": {
+          "read": 1,
+          "write": 1
+        },
+        "methods": [
+          "product_improvements.get",
+          "product_improvements.set"
+        ]
+      },
+      "professional_consent": {
+        "count": 1,
+        "safety": {
+          "write": 1
+        },
+        "methods": [
+          "professional_consent.resume"
+        ]
+      },
+      "reactions": {
+        "count": 1,
+        "safety": {
+          "write": 1
+        },
+        "methods": [
+          "reactions.toggle"
+        ]
+      },
+      "redteam": {
+        "count": 4,
+        "safety": {
+          "write": 1,
+          "destructive": 1,
+          "read": 2
+        },
+        "methods": [
+          "redteam.mocks.apply",
+          "redteam.mocks.clear",
+          "redteam.mocks.get",
+          "redteam.sidecar.tail"
+        ]
+      },
+      "session": {
+        "count": 7,
+        "safety": {
+          "destructive": 2,
+          "write": 5
+        },
+        "methods": [
+          "session.archive",
+          "session.delete",
+          "session.pin",
+          "session.rename",
+          "session.start",
+          "session.unarchive",
+          "session.unpin"
+        ]
+      },
+      "sessions": {
+        "count": 2,
+        "safety": {
+          "read": 2
+        },
+        "methods": [
+          "sessions.get",
+          "sessions.list"
+        ]
+      },
+      "shared_agents": {
+        "count": 15,
+        "safety": {
+          "read": 6,
+          "write": 7,
+          "destructive": 2
+        },
+        "methods": [
+          "shared_agents.capabilities",
+          "shared_agents.create",
+          "shared_agents.definition",
+          "shared_agents.definition.update",
+          "shared_agents.delete",
+          "shared_agents.detail",
+          "shared_agents.identity.update",
+          "shared_agents.list",
+          "shared_agents.remote.open",
+          "shared_agents.remote.send",
+          "shared_agents.shares.conversation",
+          "shared_agents.shares.create",
+          "shared_agents.shares.list",
+          "shared_agents.shares.revoke",
+          "shared_agents.state.update"
+        ]
+      },
+      "shared_space": {
+        "count": 1,
+        "safety": {
+          "write": 1
+        },
+        "methods": [
+          "shared_space.callback"
+        ]
+      },
+      "sharing": {
+        "count": 2,
+        "safety": {
+          "write": 1,
+          "read": 1
+        },
+        "methods": [
+          "sharing.attempt",
+          "sharing.eligibility"
+        ]
+      },
+      "shopping": {
+        "count": 3,
+        "safety": {
+          "read": 2,
+          "write": 1
+        },
+        "methods": [
+          "shopping.cart",
+          "shopping.events",
+          "shopping.product_details"
+        ]
+      },
+      "skills": {
+        "count": 3,
+        "safety": {
+          "destructive": 1,
+          "read": 1,
+          "write": 1
+        },
+        "methods": [
+          "skills.disconnect",
+          "skills.list",
+          "skills.set_disabled"
+        ]
+      },
+      "spaces": {
+        "count": 18,
+        "safety": {
+          "read": 11,
+          "write": 4,
+          "destructive": 3
+        },
+        "methods": [
+          "spaces.cvm.get",
+          "spaces.cvm.post",
+          "spaces.cvm.render",
+          "spaces.debug.invocation",
+          "spaces.debug.invocations",
+          "spaces.debug.log",
+          "spaces.debug.summary",
+          "spaces.delete",
+          "spaces.export_html",
+          "spaces.list",
+          "spaces.save",
+          "spaces.saved.delete",
+          "spaces.share",
+          "spaces.share.fix",
+          "spaces.share.review",
+          "spaces.share.status",
+          "spaces.subscribe",
+          "spaces.unshare"
+        ]
+      },
+      "ssh": {
+        "count": 2,
+        "safety": {
+          "sensitive": 2
+        },
+        "methods": [
+          "ssh.operator.disable",
+          "ssh.operator.enable"
+        ]
+      },
+      "subagents": {
+        "count": 2,
+        "safety": {
+          "read": 2
+        },
+        "methods": [
+          "subagents.list",
+          "subagents.status"
+        ]
+      },
+      "subscription": {
+        "count": 2,
+        "safety": {
+          "sensitive": 2
+        },
+        "methods": [
+          "subscription.callback",
+          "subscription.redeem_complimentary"
+        ]
+      },
+      "tasks": {
+        "count": 5,
+        "safety": {
+          "destructive": 1,
+          "read": 3,
+          "write": 1
+        },
+        "methods": [
+          "tasks.delete",
+          "tasks.list",
+          "tasks.run",
+          "tasks.runs",
+          "tasks.subscribe"
+        ]
+      },
+      "theme": {
+        "count": 1,
+        "safety": {
+          "read": 1
+        },
+        "methods": [
+          "theme.subscribe"
+        ]
+      },
+      "username_password_auth": {
+        "count": 1,
+        "safety": {
+          "sensitive": 1
+        },
+        "methods": [
+          "username_password_auth.callback"
+        ]
+      },
+      "vault": {
+        "count": 1,
+        "safety": {
+          "sensitive": 1
+        },
+        "methods": [
+          "vault.luks_status"
+        ]
+      },
+      "vm": {
+        "count": 2,
+        "safety": {
+          "read": 2
+        },
+        "methods": [
+          "vm.enrollment_health",
+          "vm.health"
+        ]
+      },
+      "voice": {
+        "count": 17,
+        "safety": {
+          "read": 7,
+          "write": 8,
+          "destructive": 2
+        },
+        "methods": [
+          "voice.active_voice",
+          "voice.available_voices",
+          "voice.avatar_video.prepare",
+          "voice.calls.join",
+          "voice.calls.media_endpoint",
+          "voice.catalog",
+          "voice.catalog_filters",
+          "voice.custom_voices.delete",
+          "voice.custom_voices.list",
+          "voice.custom_voices.rename",
+          "voice.dictation",
+          "voice.end_call",
+          "voice.onboarding.reset",
+          "voice.pipeline_profiles",
+          "voice.select_pipeline_profile",
+          "voice.start_call",
+          "voice.user_speech_started"
+        ]
+      },
+      "wallet": {
+        "count": 2,
+        "safety": {
+          "read": 1,
+          "write": 1
+        },
+        "methods": [
+          "wallet.get",
+          "wallet.set"
+        ]
+      },
+      "whatsapp_companion": {
+        "count": 2,
+        "safety": {
+          "sensitive": 2
+        },
+        "methods": [
+          "whatsapp_companion.link",
+          "whatsapp_companion.status"
+        ]
+      },
+      "whatsapp": {
+        "count": 2,
+        "safety": {
+          "write": 2
+        },
+        "methods": [
+          "whatsapp.install",
+          "whatsapp.login"
+        ]
+      },
+      "widgets": {
+        "count": 2,
+        "safety": {
+          "write": 2
+        },
+        "methods": [
+          "widgets.state.patch",
+          "widgets.state.set"
+        ]
+      }
+    }
+  },
+  "events": [
+    "activity.updated",
+    "agent.status",
+    "approvals.snapshot",
+    "artifacts.snapshot",
+    "chat.seen",
+    "client.invoke",
+    "computer.updated",
+    "delta.marker",
+    "delta.message_done",
+    "delta.message_removed",
+    "delta.message_start",
+    "delta.placeholder",
+    "delta.presentation",
+    "delta.text_append",
+    "delta.tool_done",
+    "delta.tool_start",
+    "feed.updated",
+    "files.updated",
+    "fs.updated",
+    "goal.updated",
+    "identity.updated",
+    "message.assistant",
+    "message.user",
+    "message.user_metadata_updated",
+    "model.updated",
+    "navigation.items.removed",
+    "navigation.items.snapshot",
+    "navigation.items.updated",
+    "pin.updated",
+    "reactions.updated",
+    "service.notice",
+    "sessions.updated",
+    "shared_agents.remote.closed",
+    "shared_agents.remote.message",
+    "spaces.data_invalidated",
+    "spaces.updated",
+    "ssh.operator.updated",
+    "sxs.ready",
+    "sxs.resolved",
+    "sxs.started",
+    "task.status",
+    "theme.updated",
+    "tool_call.started",
+    "widget.state_updated"
+  ],
+  "slashCommands": [
+    "/status",
+    "/compact",
+    "/clear",
+    "/usage on|off",
+    "/subagents [-a] [limit]",
+    "/stop",
+    "/latest",
+    "/activity"
+  ]
+}

@@ -1,0 +1,15 @@
+node_modules/
+dist/
+*.tsbuildinfo
+tsconfig.*.tsbuildinfo
+.env
+.env.*
+.DS_Store
+*.pem
+*.key
+coverage/
+/tmp/
+
+# Recovered Meta/Hatch proprietary source — kept locally for reference only,
+# never committed. See reference/README.txt.
+reference/

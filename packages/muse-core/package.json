@@ -1,0 +1,32 @@
+{
+  "name": "muse-agent-core",
+  "version": "0.1.0",
+  "description": "Unofficial TypeScript SDK for driving a Muse personal AI agent: Noise transport, HTTP-over-Noise RPC, session auth, and streaming.",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=20.3"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "!dist/**/*.test.*",
+    "!dist/**/*.tsbuildinfo"
+  ],
+  "keywords": [
+    "muse",
+    "agents",
+    "sdk",
+    "noise-protocol"
+  ],
+  "scripts": {
+    "build": "tsc -b"
+  }
+}

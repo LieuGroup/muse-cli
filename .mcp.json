@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "muse": {
+      "command": "bun",
+      "args": ["packages/muse-mcp/src/index.ts"],
+      "env": {
+        "MUSE_FROM_CHROME": "1"
+      }
+    },
+    "rea": {
+      "command": "npx",
+      "args": ["-y", "rea-agents@6.4.0", "mcp"]
+    }
+  }
+}
