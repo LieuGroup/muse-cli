@@ -63,7 +63,13 @@ FILES (relative to the agent's home, ~)
 
 ACCOUNT / SYSTEM
   status                 One-glance overview
-  auth                   Check the session
+  auth                   Check the session (and where it comes from)
+  auth login --email ADDR | --phone NUMBER
+                         Sign in with a one-time code typed into the terminal;
+                         saves the session to the macOS Keychain
+                           --code-command CMD  print the code (automation)
+                           --region AU         region for a local phone number
+  auth logout            Remove the saved session
   vms                    List agent VMs
   health                 Full VM diagnostics (JSON)
   methods [filter]       Gateway RPC catalog
@@ -78,8 +84,10 @@ GLOBAL FLAGS
   --cookie-file PATH     cookies.txt / Cookie header file (env MUSE_COOKIE_FILE)
 
 AUTH
-  On macOS, muse reads your logged-in muse.ai session from Chrome automatically.
-  Elsewhere, set MUSE_COOKIE or MUSE_COOKIE_FILE.
+  Session sources, first match wins: --cookie, MUSE_COOKIE, --cookie-file /
+  MUSE_COOKIE_FILE, the login saved by \`muse auth login\`, then Chrome (macOS).
+  When a session expires, run \`muse auth login\` again.
+  Automation: MUSE_LOGIN (contact) and MUSE_CODE_COMMAND (prints the code).
 
 EXIT CODES
   0 ok · 1 failure · 2 usage · 3 not authenticated · 4 unsupported (e.g. confidential VM)

@@ -56,6 +56,15 @@ the reverse. The CLI resolves `muse-core` through its `dist/`, so rebuild core
     `required`/`optional` params). The agent invokes them; the CLI can only list
     them (`muse nodes`). Mac commands cover computer use, iMessage, Mail, Notes,
     files, calendar, reminders, contacts; `system.run` and `browser.proxy` are retired.
+15. Login is passwordless OTP on `/api/auth/native/*`: `restart` (`csrf_token`;
+    `flow_state:"new"` also needs `start`) → `send-otp {contact_point, region?}`
+    (email or phone; the server picks where the code goes) → `confirm-otp {otp_code}`.
+    Steps send `X-Hatch-CSRF-Token` plus the `hatch_native_auth_*` cookies.
+    Optional 2FA: `two-factor-send-code` (SMS is not auto-sent) → `two-factor`.
+    Success returns `auth_meta_session.frl_access_token`; a form POST of it to
+    `auth.meta.com/hatch/session/bootstrap/` redirects back with `hatch_sess`.
+    `muse auth login` saves the cookie in the Keychain (service `muse-agent-cli`).
+    Password-only accounts (`registration_state:"password_required"`) are not supported.
 
 Confidential VMs (CVM: SEV-SNP attestation + PIN-derived key) are **not**
 supported. The client detects a CVM and stops with exit code 4.

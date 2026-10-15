@@ -1,6 +1,19 @@
 export const MUSE_VERSION = "0.1.0";
 
 export {
+  deleteKeychainSession,
+  KEYCHAIN_SERVICE,
+  readKeychainSession,
+  saveKeychainSession,
+} from "./auth/keychain-session-store.js";
+export { loginWithOtp, type OtpLoginOptions } from "./auth/native-auth.js";
+export {
+  type ConfirmOutcome,
+  NativeAuthClient,
+  type NativeAuthClientOptions,
+  type TwoFactorMethod,
+} from "./auth/native-auth-client.js";
+export {
   type AskOptions,
   type AskResult,
   ask,

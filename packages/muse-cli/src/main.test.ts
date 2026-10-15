@@ -94,6 +94,33 @@ describe("muse CLI", () => {
     expect(c.text()).toContain("/chat/stream");
   });
 
+  it("requires a contact point for auth login", async () => {
+    const c = capture();
+    expect(await run(["auth", "login"], c.io)).toBe(EXIT.usage);
+    expect(c.err.join("\n")).toContain("--email");
+  });
+
+  it("refuses to send a code with no terminal and no --code-command", async () => {
+    const c = capture();
+    const tty = process.stdin.isTTY;
+    const saved = process.env.MUSE_CODE_COMMAND;
+    process.stdin.isTTY = false;
+    delete process.env.MUSE_CODE_COMMAND;
+    try {
+      expect(await run(["login", "login", "--email", "a@b.co"], c.io)).toBe(
+        EXIT.usage,
+      );
+      expect(c.err.join("\n")).toContain("--code-command");
+    } finally {
+      process.stdin.isTTY = tty;
+      if (saved !== undefined) process.env.MUSE_CODE_COMMAND = saved;
+    }
+  });
+
+  it("rejects unknown auth subcommands", async () => {
+    expect(await run(["auth", "frobnicate"], capture().io)).toBe(EXIT.usage);
+  });
+
   it("refuses unsafe calls without --allow-unsafe", async () => {
     const c = capture();
     expect(await run(["call", "spaces.delete", '{"slug":"x"}'], c.io)).toBe(

@@ -3,7 +3,8 @@
  *   1. an explicit string,
  *   2. `MUSE_COOKIE` env var,
  *   3. a cookie file (Netscape `cookies.txt` or a raw `Cookie:` header),
- *   4. the local Chrome cookie store (macOS; decrypted via Keychain).
+ *   4. a session saved by `muse auth login` (macOS Keychain),
+ *   5. the local Chrome cookie store (macOS; decrypted via Keychain).
  *
  * Only cookies for the muse.ai domain are read, and values are never logged.
  */
@@ -13,6 +14,7 @@ import { readFile } from "node:fs/promises";
 import { homedir } from "node:os";
 import { join } from "node:path";
 import { promisify } from "node:util";
+import { readKeychainSession } from "./auth/keychain-session-store.js";
 import { MuseError } from "./errors.js";
 
 const execFileAsync = promisify(execFile);
@@ -23,6 +25,8 @@ export interface CookieSourceOptions {
   readonly cookieFile?: string;
   readonly fromChrome?: boolean;
   readonly chromeProfile?: string;
+  /** Use the session saved by `muse auth login`. Default true. */
+  readonly useSavedSession?: boolean;
   readonly env?: NodeJS.ProcessEnv;
 }
 
@@ -143,6 +147,11 @@ export async function resolveCookie(
     const text = await readFile(env.MUSE_COOKIE_FILE, "utf8");
     return headerFromPairs(parseCookieText(text));
   }
+  // A login saved by `muse auth login`, unless Chrome was asked for explicitly.
+  if (opts.useSavedSession !== false && opts.fromChrome !== true) {
+    const saved = await readKeychainSession();
+    if (saved) return headerFromPairs(parseCookieText(saved));
+  }
   // Chrome is the default on macOS: the user's logged-in browser session.
   const useChrome = opts.fromChrome ?? process.platform === "darwin";
   if (useChrome) {
@@ -160,7 +169,7 @@ export async function resolveCookie(
   }
   throw new MuseError(
     "auth",
-    "No cookie source. Pass --cookie, set MUSE_COOKIE / MUSE_COOKIE_FILE, or log in to muse.ai in Chrome (macOS).",
+    "No cookie source. Run `muse auth login --email you@example.com`, pass --cookie, set MUSE_COOKIE / MUSE_COOKIE_FILE, or log in to muse.ai in Chrome (macOS).",
   );
 }
 

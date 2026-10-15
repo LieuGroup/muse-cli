@@ -1,4 +1,5 @@
 import type { Command } from "../context.js";
+import { authCommand } from "./auth.js";
 import { browserCommand } from "./browser.js";
 import {
   askCommand,
@@ -24,7 +25,6 @@ import {
   skillsCommand,
 } from "./settings.js";
 import {
-  authCommand,
   callCommand,
   healthCommand,
   methodsCommand,
@@ -80,6 +80,7 @@ export const COMMANDS: Readonly<Record<string, Command>> = {
 export const ALIASES: Readonly<Record<string, string>> = {
   sessions: "threads",
   thread: "threads",
+  login: "auth",
   devices: "nodes",
   node: "nodes",
   logs: "watch",

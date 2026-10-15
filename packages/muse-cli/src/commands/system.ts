@@ -1,9 +1,4 @@
-import {
-  findRoute,
-  listChromeProfilesWithMuse,
-  MUSE_VERSION,
-  RPC_ROUTES,
-} from "muse-agent-core";
+import { findRoute, MUSE_VERSION, RPC_ROUTES } from "muse-agent-core";
 import {
   type Command,
   EXIT,
@@ -12,38 +7,11 @@ import {
   withGateway,
 } from "../context.js";
 import { flagNumber } from "../parse-argv.js";
-import { bold, dim, green, red, table } from "../render.js";
+import { bold, dim, green, table } from "../render.js";
 
 export const versionCommand: Command = async (ctx) => {
   ctx.io.out(MUSE_VERSION);
   return EXIT.ok;
-};
-
-/** `muse auth` — is the session cookie valid? Lists Chrome profiles found. */
-export const authCommand: Command = async (ctx) => {
-  const session = await ctx.session();
-  const ok = await session.check();
-  const profiles = await listChromeProfilesWithMuse().catch(() => []);
-  if (ctx.json) {
-    printJson(ctx, {
-      authenticated: ok,
-      chrome_profiles_with_session: profiles,
-    });
-  } else {
-    ctx.io.out(
-      ok
-        ? green("authenticated")
-        : red("NOT authenticated — log in at muse.ai in Chrome"),
-    );
-    if (profiles.length > 0) {
-      ctx.io.out(
-        dim(
-          `Chrome profiles with a muse.ai session: ${profiles.join(", ")} (pick one with --profile)`,
-        ),
-      );
-    }
-  }
-  return ok ? EXIT.ok : EXIT.auth;
 };
 
 /** `muse vms` */
