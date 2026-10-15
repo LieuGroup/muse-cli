@@ -54,6 +54,15 @@ DEVICES (your Mac/iPhone, paired through the Muse app)
   nodes <#> <command>    Full description and parameters of one command
   (Muse calls these itself:  muse ask "summarise my unread iMessages")
 
+BRIDGE (let Muse call your own runtimes: Claude Code, LilOS, shell, MCP)
+  bridge init            Write a safe starter config  [--channel macos|terminal|muse]
+  bridge commands        What Muse will see, and each command's level
+  bridge start           Connect and serve invokes    [--foreground] [--config PATH]
+  bridge stop            Kill switch: stop and unregister
+  bridge status | log    Running state / audit log    [--tail N]
+  bridge install | uninstall   Start at login (macOS launchd)
+  Levels per command: full (run), auto (run if rules pass), manual (ask), off.
+
 FILES (relative to the agent's home, ~)
   ls [path] [--all]      List a directory
   cat <path>             Print a file

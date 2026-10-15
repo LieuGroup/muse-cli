@@ -18,6 +18,7 @@
     "!dist/**/*.tsbuildinfo"
   ],
   "dependencies": {
+    "muse-agent-bridge": "^0.1.0",
     "muse-agent-core": "^0.1.0"
   },
   "keywords": [

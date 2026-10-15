@@ -9,13 +9,15 @@ terminal or over MCP. `CLAUDE.md` is a symlink to this file; edit `AGENTS.md`.
 | Path | Purpose |
 |---|---|
 | `packages/muse-core` | npm `muse-agent-core`. SDK: Noise XX transport, HTTP-over-Noise envelope, session/auth, gateway client, `ask()`, RPC catalog |
-| `packages/muse-cli` | npm `muse-agent-cli`, binary `muse` (renders from core) |
+| `packages/muse-bridge` | npm `muse-agent-bridge`. Lets the Muse agent call your runtimes (Claude Code, shell, HTTP, MCP) with per-command safeguards. Design: `docs/muse-bridge-design.md` |
+| `packages/muse-cli` | npm `muse-agent-cli`, binary `muse` (renders from core and bridge) |
 | `packages/muse-mcp` | npm `muse-agent-mcp`, binary `muse-mcp` (renders from core) |
 | `reference/` | **Gitignored.** Meta source recovered from public source maps. Read-only study material |
 
-Dependencies are one-way: `muse-cli` and `muse-mcp` import `muse-core`, never
-the reverse. The CLI resolves `muse-core` through its `dist/`, so rebuild core
-(`bun run build`) before running the CLI from source.
+Dependencies are one-way: `muse-bridge` imports `muse-core`; `muse-cli` imports
+both; `muse-mcp` imports `muse-core`. Nothing imports the CLI. The CLI resolves
+both through their `dist/`, so rebuild them (`bun run build`) before running the
+CLI from source.
 
 ## How Muse works (verified)
 
@@ -65,6 +67,21 @@ the reverse. The CLI resolves `muse-core` through its `dist/`, so rebuild core
     `auth.meta.com/hatch/session/bootstrap/` redirects back with `hatch_sess`.
     `muse auth login` saves the cookie in the Keychain (service `muse-agent-cli`).
     Password-only accounts (`registration_state:"password_required"`) are not supported.
+16. A client can act as a device the agent calls (verified live, implemented as
+    `muse bridge`). On an open `chat.subscribe`: `node.register {node_id,
+    display_name, platform:"web", commands_v2}` (`commands_v2` required), then
+    `client.register_capabilities` with commands under `capabilities.device_commands`
+    (`{description, required, optional, permissions, datatype, timeout_ms}`).
+    Param `type` is numeric there: 1 string, 2 integer, 3 number, 4 boolean.
+    Commands under `hatch_app_commands` are accepted but never invoked. The agent
+    calls `device.invoke`; the client gets `client.invoke {invoke_id, command_id,
+    params_json, timeout_ms}` on its own connection and answers
+    `client.invoke.result {invoke_id, ok, payload_json | error}`. Muse gives up
+    after ~30 s (`node_invoke_timeout`), so longer work must return a job id.
+    A thread's messages arrive only on a `chat.subscribe` for that `session_id`.
+    The node is connection-scoped and vanishes on disconnect. Muse adds no
+    approval for these invokes; all safeguards are the client's. See
+    `docs/muse-bridge-design.md`.
 
 Confidential VMs (CVM: SEV-SNP attestation + PIN-derived key) are **not**
 supported. The client detects a CVM and stops with exit code 4.

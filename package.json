@@ -19,10 +19,10 @@
     "format": "biome check --write .",
     "gen:catalog": "bun packages/muse-core/scripts/generate-rpc-catalog.ts",
     "muse": "bun run --cwd packages/muse-core build >/dev/null && bun packages/muse-cli/src/cli.ts",
-    "typecheck": "tsc -b packages/muse-core packages/muse-cli packages/muse-mcp",
+    "typecheck": "tsc -b packages/muse-core packages/muse-bridge packages/muse-cli packages/muse-mcp",
     "test:unit": "vitest run",
-    "build": "bun run --cwd packages/muse-core build && bun run --cwd packages/muse-cli build && bun run --cwd packages/muse-mcp build",
-    "pack:check": "for p in muse-core muse-cli muse-mcp; do (cd packages/$p && npm pack --dry-run); done",
-    "publish:all": "bun run verify && for p in muse-core muse-cli muse-mcp; do (cd packages/$p && npm publish --access public --auth-type=web); done"
+    "build": "bun run --cwd packages/muse-core build && bun run --cwd packages/muse-bridge build && bun run --cwd packages/muse-cli build && bun run --cwd packages/muse-mcp build",
+    "pack:check": "for p in muse-core muse-bridge muse-cli muse-mcp; do (cd packages/$p && npm pack --dry-run); done",
+    "publish:all": "bun run verify && for p in muse-core muse-bridge muse-cli muse-mcp; do (cd packages/$p && npm publish --access public --auth-type=web); done"
   }
 }

@@ -1,5 +1,6 @@
 import type { Command } from "../context.js";
 import { authCommand } from "./auth.js";
+import { bridgeCommand } from "./bridge.js";
 import { browserCommand } from "./browser.js";
 import {
   askCommand,
@@ -59,6 +60,7 @@ export const COMMANDS: Readonly<Record<string, Command>> = {
   subagents: subagentsCommand,
   browser: browserCommand,
   nodes: nodesCommand,
+  bridge: bridgeCommand,
   artifacts: artifactsCommand,
   media: mediaCommand,
   podcasts: podcastsCommand,

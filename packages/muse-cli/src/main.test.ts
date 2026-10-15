@@ -117,6 +117,40 @@ describe("muse CLI", () => {
     }
   });
 
+  it("bridge init writes a safe config that bridge commands can read", async () => {
+    const { mkdtempSync, readFileSync, statSync } = await import("node:fs");
+    const { tmpdir } = await import("node:os");
+    const { join } = await import("node:path");
+    const path = join(
+      mkdtempSync(join(tmpdir(), "bridge-cli-")),
+      "bridge.json",
+    );
+    const c = capture();
+    expect(
+      await run(["bridge", "init", "--config", path, "--repo", "/tmp"], c.io),
+    ).toBe(EXIT.ok);
+    expect(statSync(path).mode & 0o777).toBe(0o600);
+    expect(JSON.parse(readFileSync(path, "utf8")).approval.channel).toBe(
+      "macos",
+    );
+    expect(await run(["bridge", "init", "--config", path], capture().io)).toBe(
+      EXIT.usage,
+    );
+
+    const list = capture();
+    expect(
+      await run(["bridge", "commands", "--config", path, "--json"], list.io),
+    ).toBe(EXIT.ok);
+    const rows = JSON.parse(list.text()) as {
+      command: string;
+      level: string;
+    }[];
+    expect(rows.map((r) => `${r.command}=${r.level}`).sort()).toEqual([
+      "bridge.uptime=full",
+      "claude.ask=manual",
+    ]);
+  });
+
   it("rejects unknown auth subcommands", async () => {
     expect(await run(["auth", "frobnicate"], capture().io)).toBe(EXIT.usage);
   });

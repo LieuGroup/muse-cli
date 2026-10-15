@@ -1,0 +1,30 @@
+{
+  "name": "muse-agent-bridge",
+  "version": "0.1.0",
+  "description": "Expose your own agent runtimes (Claude Code, LilOS, shell, MCP) as device commands the Muse agent can invoke, with per-command safeguards.",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=20.3"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "!dist/**/*.test.*",
+    "!dist/**/*.tsbuildinfo"
+  ],
+  "dependencies": {
+    "muse-agent-core": "^0.1.0"
+  },
+  "keywords": [
+    "muse",
+    "muse-bridge",
+    "agents",
+    "claude-code",
+    "mcp"
+  ],
+  "scripts": {
+    "build": "tsc -b"
+  }
+}
