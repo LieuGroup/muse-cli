@@ -1,6 +1,6 @@
 {
   "name": "muse-agent-mcp",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Unofficial stdio MCP server over muse-agent-core for driving your Muse personal AI agent from any MCP-compatible agent.",
   "license": "MIT",
   "type": "module",
@@ -18,7 +18,7 @@
     "!dist/**/*.tsbuildinfo"
   ],
   "dependencies": {
-    "muse-agent-core": "^0.1.0"
+    "muse-agent-core": "^0.1.1"
   },
   "keywords": [
     "muse",

@@ -14,34 +14,34 @@
     },
     "packages/muse-bridge": {
       "name": "muse-agent-bridge",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "dependencies": {
-        "muse-agent-core": "^0.1.0",
+        "muse-agent-core": "^0.1.1",
       },
     },
     "packages/muse-cli": {
       "name": "muse-agent-cli",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "bin": {
         "muse": "dist/cli.js",
       },
       "dependencies": {
-        "muse-agent-bridge": "^0.1.0",
-        "muse-agent-core": "^0.1.0",
+        "muse-agent-bridge": "^0.1.1",
+        "muse-agent-core": "^0.1.1",
       },
     },
     "packages/muse-core": {
       "name": "muse-agent-core",
-      "version": "0.1.0",
+      "version": "0.1.1",
     },
     "packages/muse-mcp": {
       "name": "muse-agent-mcp",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "bin": {
         "muse-mcp": "dist/index.js",
       },
       "dependencies": {
-        "muse-agent-core": "^0.1.0",
+        "muse-agent-core": "^0.1.1",
       },
     },
   },

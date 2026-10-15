@@ -1,6 +1,6 @@
 {
   "name": "muse-agent-core",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Unofficial TypeScript SDK for driving a Muse personal AI agent: Noise transport, HTTP-over-Noise RPC, session auth, and streaming.",
   "license": "MIT",
   "type": "module",

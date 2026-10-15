@@ -1,6 +1,6 @@
 {
   "name": "muse-agent-cli",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Unofficial CLI for driving your Muse personal AI agent from any terminal or agent runtime (Claude Code, Hermes, Codex).",
   "license": "MIT",
   "type": "module",
@@ -18,8 +18,8 @@
     "!dist/**/*.tsbuildinfo"
   ],
   "dependencies": {
-    "muse-agent-bridge": "^0.1.0",
-    "muse-agent-core": "^0.1.0"
+    "muse-agent-bridge": "^0.1.1",
+    "muse-agent-core": "^0.1.1"
   },
   "keywords": [
     "muse",
