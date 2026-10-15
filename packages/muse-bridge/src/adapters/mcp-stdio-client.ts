@@ -36,6 +36,9 @@ export class McpStdioClient {
       shell: false,
     });
     this.#child = child;
+    // Writes after the server exits fail with EPIPE; the exit handler below
+    // already rejects pending calls, so the write error itself is ignored.
+    child.stdin?.on("error", () => {});
     child.on("exit", () => {
       for (const p of this.#pending.values())
         p.reject(new Error("MCP server exited"));

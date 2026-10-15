@@ -80,6 +80,10 @@ export function runProcess(
       opts.signal.removeEventListener("abort", kill);
       resolve({ code, stdout, stderr, timedOut, truncated });
     });
+    // A program that exits without reading stdin (printf, false) closes the
+    // pipe; the write then fails with EPIPE. That is not an error for us: the
+    // exit code and output are what matter.
+    child.stdin.on("error", () => {});
     child.stdin.end(opts.stdin ?? "");
   });
 }
